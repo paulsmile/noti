@@ -18,7 +18,7 @@ function sendLoginMsg($enterpriseId, $enterpriseSecret) {
 
 $msg = sendLoginMsg($enterpriseId, $enterpriseSecret);
 
-$fp = stream_socket_client("ssl://noti.gizwits.com:2015", $errno, $errstr, 30);  
+$fp = stream_socket_client("ssl://noti.gizwits.com:2015", $errno, $errstr, 30) or die("error!");  
 fwrite($fp, $msg);  
 $response = "";
 while (!feof($fp) ) {  
@@ -27,4 +27,15 @@ while (!feof($fp) ) {
     //处理这一行  
 }  
 print_r($response);
+
+
+$msg = "{\"cmd\": \"enterprise_ping\"}\n";
+fwrite($fp, $msg);  
+$result = "";
+while (!feof($fp) ) {  
+    $r = fgets($fp, 1024);  
+    $result .= $r;  
+}  
+print_r($result);
+
 ?>
