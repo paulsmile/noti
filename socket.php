@@ -1,6 +1,4 @@
 <?php
-$gizwits_noti_host = "noti.gizwits.com";
-$gizwits_noti_port = 2015;
 $enterpriseId = "ccd3b1f498be4c21a30a938fe400ce64";
 $enterpriseSecret = "c54dad24bffb4881adb2b12c76d7a2e0";
 
